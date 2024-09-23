@@ -17,7 +17,66 @@ const data = {
                             id: 128,
                             name: 'Формировать требования к дизайну веб-приложений.',
                             type: 'experience',
-                            childs: []
+                            childs: [
+                                {
+                                    id: 136,
+                                    name: 'Учитывать существующие правила корпоративного стиля.',
+                                    type: 'able',
+                                    childs:[
+                                        {
+                                            id: 137,
+                                            name: 'Нормы и правила выбора стилистических решений.',
+                                            type: 'know',
+                                            childs: []
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 138,
+                                    name: 'Выбирать наиболее подходящее для целевого рынка дизайнерское решение.',
+                                    type: 'able',
+                                    childs:[
+                                        {
+                                            id: 139,
+                                            name: 'Ограничения, накладываемые мобильными устройствами и разрешениями экранов при просмотре веб-приложений.',
+                                            type: 'know',
+                                            childs: []
+                                        },
+                                        {
+                                            id: 140,
+                                            name: 'Государственные стандарты и требования к разработке дизайна веб-приложений.',
+                                            type: 'know',
+                                            childs: []
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 141,
+                                    name: 'Осуществлять анализ предметной области и целевой аудитории.',
+                                    type: 'able',
+                                    childs:[
+                                        {
+                                            id: 142,
+                                            name: 'Современные тенденции дизайна.',
+                                            type: 'know',
+                                            childs: []
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 143,
+                                    name: 'Анализировать целевой рынок и продвигать продукцию, используя дизайн веб-приложений.',
+                                    type: 'able',
+                                    childs:[
+                                        {
+                                            id: 144,
+                                            name: 'Вопросы, связанные с когнитивными, социальными, культурными, технологическими и экономическими условиями при разработке дизайна.',
+                                            type: 'know',
+                                            childs: []
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -26,15 +85,75 @@ const data = {
                     name: 'Разрабатывать интерфейс пользователя для веб-приложений с использованием современных стандартов.',
                     type: 'able',
                     childs: []
+                },
+                {
+                    id: 128,
+                    name: 'Формировать требования к дизайну веб-приложений.',
+                    type: 'experience',
+                    childs: [
+                        {
+                            id: 136,
+                            name: 'Учитывать существующие правила корпоративного стиля.',
+                            type: 'able',
+                            childs:[
+                                {
+                                    id: 137,
+                                    name: 'Нормы и правила выбора стилистических решений.',
+                                    type: 'know',
+                                    childs: []
+                                }
+                            ]
+                        },
+                        {
+                            id: 138,
+                            name: 'Выбирать наиболее подходящее для целевого рынка дизайнерское решение.',
+                            type: 'able',
+                            childs:[
+                                {
+                                    id: 139,
+                                    name: 'Ограничения, накладываемые мобильными устройствами и разрешениями экранов при просмотре веб-приложений.',
+                                    type: 'know',
+                                    childs: []
+                                },
+                                {
+                                    id: 140,
+                                    name: 'Государственные стандарты и требования к разработке дизайна веб-приложений.',
+                                    type: 'know',
+                                    childs: []
+                                }
+                            ]
+                        },
+                        {
+                            id: 141,
+                            name: 'Осуществлять анализ предметной области и целевой аудитории.',
+                            type: 'able',
+                            childs:[
+                                {
+                                    id: 142,
+                                    name: 'Современные тенденции дизайна.',
+                                    type: 'know',
+                                    childs: []
+                                }
+                            ]
+                        },
+                        {
+                            id: 143,
+                            name: 'Анализировать целевой рынок и продвигать продукцию, используя дизайн веб-приложений.',
+                            type: 'able',
+                            childs:[
+                                {
+                                    id: 144,
+                                    name: 'Вопросы, связанные с когнитивными, социальными, культурными, технологическими и экономическими условиями при разработке дизайна.',
+                                    type: 'know',
+                                    childs: []
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
-        {
-            id: 128,
-            name: 'Формировать требования к дизайну веб-приложений.',
-            type: 'experience',
-            childs: []
-        },
+
         {id: 126, 
             name: 'Разрабатывать прототип дизайна веб-приложения.', 
             type: 'experience', 
@@ -114,6 +233,19 @@ const data = {
                         }
                     ]
                 },
+                {
+                    id: 136,
+                    name: 'Учитывать существующие правила корпоративного стиля.',
+                    type: 'able',
+                    childs:[
+                        {
+                            id: 137,
+                            name: 'Нормы и правила выбора стилистических решений.',
+                            type: 'know',
+                            childs: []
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -260,6 +392,7 @@ const data = {
 // Преобразование данных в иерархический формат для D3.js
 const root = d3.hierarchy(data, d => d.childs);
 
+// Размеры SVG
 const svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
@@ -268,11 +401,11 @@ const g = svg.append("g");
 
 // Добавляем zoom и pan (масштабирование и перемещение)
 svg.call(d3.zoom()
-    .scaleExtent([0.5, 3]) // Ограничение на масштабирование
+    .scaleExtent([0.2, 3]) // Увеличили диапазон масштабирования
     .on("zoom", event => g.attr("transform", event.transform)));
 
 // Установка дерева и его размеров
-const treeLayout = d3.tree().size([2000, 2000]);
+const treeLayout = d3.tree().nodeSize([100, 300]); // Увеличили расстояние между уровнями
 
 treeLayout(root);
 
@@ -280,7 +413,7 @@ treeLayout(root);
 svg.append("defs").append("marker")
     .attr("id", "arrow")
     .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 10)  // Подбираем корректную позицию стрелки относительно линии
+    .attr("refX", 10)
     .attr("refY", 0)
     .attr("markerWidth", 6)
     .attr("markerHeight", 6)
@@ -328,27 +461,30 @@ const node = g.append("g")
     .attr("transform", d => `translate(${d.y},${d.x})`);
 
 node.append("rect")
-    .attr("width", 200)  // Увеличиваем ширину прямоугольника
+    .attr("width", d => {
+        const lines = wrapText(d.data.name, 30).length;
+        return 200 + (lines > 2 ? 20 : 0); // Увеличиваем ширину для длинных текстов
+    })
     .attr("height", d => {
-        const lines = wrapText(d.data.name, 35).length;  // Увеличиваем количество символов на строку
+        const lines = wrapText(d.data.name, 30).length;
         return 20 + lines * 14; // Высота зависит от количества строк
     })
-    .attr("x", -100)  // Центрируем фигуру по оси X
+    .attr("x", -100)
     .attr("y", d => {
-        const lines = wrapText(d.data.name, 35).length;  // Увеличиваем количество символов на строку
-        return - (lines * 7); // Центрируем по высоте
+        const lines = wrapText(d.data.name, 30).length;
+        return -(lines * 7);
     })
     .attr("rx", 5)
     .attr("ry", 5);
 
 node.append("text")
     .attr("dy", d => {
-        const lines = wrapText(d.data.name, 35).length;  // Увеличиваем количество символов на строку
-        return -(lines - 1) * 7; // Сдвигаем текст вверх для центровки
+        const lines = wrapText(d.data.name, 30).length;
+        return -(lines - 1) * 7;
     })
     .attr("text-anchor", "middle")
     .selectAll("tspan")
-    .data(d => wrapText(d.data.name, 35))  // Увеличиваем количество символов на строку
+    .data(d => wrapText(d.data.name, 30))
     .enter().append("tspan")
     .attr("x", 0)
     .attr("dy", "1.2em")
